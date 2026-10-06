@@ -1,0 +1,252 @@
+{
+ "boxes": {
+  "locked": [
+   1,
+   3,
+   216,
+   112
+  ],
+  "lockcheck": [
+   1,
+   86,
+   216,
+   112
+  ],
+  "preview": [
+   245,
+   0,
+   826,
+   326
+  ],
+  "icons": [
+   961,
+   3,
+   1068,
+   30
+  ],
+  "views": [
+   10,
+   293,
+   174,
+   321
+  ],
+  "play": [
+   2,
+   330,
+   210,
+   359
+  ],
+  "timeline": [
+   218,
+   331,
+   846,
+   359
+  ],
+  "time": [
+   901,
+   330,
+   1016,
+   359
+  ],
+  "anim": [
+   2,
+   391,
+   532,
+   635
+  ],
+  "compat": [
+   537,
+   391,
+   1068,
+   513
+  ],
+  "rotation": [
+   2,
+   396,
+   496,
+   420
+  ],
+  "offset": [
+   2,
+   423,
+   496,
+   447
+  ],
+  "floor": [
+   2,
+   450,
+   496,
+   474
+  ],
+  "sequence": [
+   2,
+   477,
+   496,
+   531
+  ],
+  "montage": [
+   2,
+   536,
+   496,
+   590
+  ],
+  "presets": [
+   2,
+   593,
+   496,
+   617
+  ],
+  "presets_s": [
+   2,
+   432,
+   496,
+   456
+  ],
+  "attach": [
+   2,
+   459,
+   496,
+   483
+  ],
+  "rootlock": [
+   2,
+   486,
+   496,
+   510
+  ],
+  "bones": [
+   537,
+   396,
+   1068,
+   421
+  ],
+  "links": [
+   537,
+   428,
+   1068,
+   454
+  ],
+  "skels": [
+   537,
+   487,
+   1068,
+   513
+  ]
+ },
+ "size": [
+  1072,
+  635
+ ],
+ "images": {
+  "interface": [
+   "locked",
+   "preview",
+   "icons",
+   "views",
+   "play",
+   "timeline",
+   "time",
+   "anim",
+   "compat"
+  ],
+  "details": [
+   "rotation",
+   "offset",
+   "floor",
+   "sequence",
+   "montage",
+   "presets",
+   "bones",
+   "links",
+   "skels"
+  ],
+  "details_more": [
+   "presets_s",
+   "attach",
+   "rootlock"
+  ],
+  "offset": [
+   "offset",
+   "preview"
+  ],
+  "floor_off": [
+   "floor",
+   "preview"
+  ],
+  "attach_rifle": [
+   "presets_s",
+   "attach"
+  ],
+  "attach_pistol": [
+   "presets_s",
+   "attach"
+  ],
+  "attach_sword": [
+   "presets_s",
+   "attach"
+  ],
+  "rootlock_on": [
+   "rootlock"
+  ],
+  "rootlock_off": [
+   "rootlock"
+  ],
+  "lock_off": [
+   "lockcheck",
+   "sequence"
+  ],
+  "lock_on": [
+   "lockcheck",
+   "sequence"
+  ],
+  "rotation": [
+   "rotation"
+  ],
+  "compat": [
+   "bones",
+   "links",
+   "skels"
+  ],
+  "details_small": []
+ },
+ "setup": {
+  "size": [
+   800,
+   610
+  ],
+  "boxes": {
+   "euw": [
+    379,
+    409,
+    495,
+    592
+   ],
+   "run": [
+    445,
+    38,
+    780,
+    67
+   ]
+  }
+ },
+ "opened": {
+  "size": [
+   2560,
+   780
+  ],
+  "boxes": {
+   "tab": [
+    1660,
+    102,
+    1800,
+    130
+   ],
+   "widget": [
+    1484,
+    130,
+    2556,
+    765
+   ]
+  }
+ }
+}

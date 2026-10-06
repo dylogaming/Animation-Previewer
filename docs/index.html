@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animation Previewer Docs</title>
+<meta name="description" content="Preview any animation by clicking it in the Content Browser.">
+<script src="dylo_persist.js" data-app="AnimPreviewerDocs"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#overview"><span class="dot"></span>Animation Previewer</a>
+  <nav class="top-links">
+    <a href="https://github.com/dylogaming/Animation-Previewer">GitHub</a>
+  </nav>
+</header>
+
+<div class="shell">
+  <aside class="side" data-sk="side">
+    <button class="side-toggle" type="button" aria-expanded="false">Contents</button>
+    <ul class="nav">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#setup">Setup</a>
+        <ul><li><a href="#setup-run">1. Run the widget</a></li><li><a href="#setup-browse">2. Click animations</a></li></ul></li>
+      <li><a href="#interface">Interface</a></li>
+      <li><a href="#controls">Controls</a></li>
+      <li><a href="#features">Features</a>
+        <ul>
+          <li><a href="#view-modes">View modes</a></li>
+          <li><a href="#rotate">Rotate</a></li>
+          <li><a href="#offset-floor">Offset and floor</a></li>
+          <li><a href="#attachments">Attachments</a></li>
+          <li><a href="#root-motion">Root Motion Lock</a></li>
+          <li><a href="#compatibility">Skeleton compatibility</a></li>
+          <li><a href="#lock-mesh">Lock Mesh</a></li>
+          <li><a href="#layout">Layout and scale</a></li>
+        </ul></li>
+      <li><a href="#changelog">Changelog</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <section id="overview" class="sec hero">
+      <p class="eyebrow">Unreal Engine 5 · Editor Utility Widget</p>
+      <h1>Animation Previewer</h1>
+      <p class="lead">Click any animation in the Content Browser. It plays instantly in a built-in preview.</p>
+      <ul class="chips">
+        <li>No room setup</li><li>Free-fly camera</li><li>Works with Realtime off</li><li>Editor only actors</li>
+      </ul>
+      <figure class="fig plain"><img src="img/interface.png" alt="Animation Previewer widget playing a run animation" width="1072" height="635"></figure>
+    </section>
+
+    <section id="setup" class="sec">
+      <h2>Setup</h2>
+      <h3 id="setup-run">1. Run the widget</h3>
+      <p>Right-click <code>EUW_AnimationPreviewer</code> and choose <b>Run Editor Utility Widget</b>. Dock it anywhere.</p>
+      <figure class="fig plain"><video src="img/step1.mp4" autoplay muted loop playsinline width="1280" height="720"></video><figcaption>Right-click, Run. It opens as a tab.</figcaption></figure>
+      <figure class="fig" data-fig="setup"><img src="img/setup.png" alt="Right-click menu with Run Editor Utility Widget" width="800" height="610"></figure>
+      <p>It opens as a tab.</p>
+      <figure class="fig" data-fig="opened"><img src="img/opened.png" alt="Animation Previewer open as an editor tab" width="2560" height="780"></figure>
+      <p class="note">Found in <code>Content/AnimationPreviewer</code>. The preview room spawns by itself.</p>
+      <h3 id="setup-browse">2. Click animations</h3>
+      <p>Select any Anim Sequence or Montage. It plays right away.</p>
+      <figure class="fig plain"><video src="img/browse.mp4" autoplay muted loop playsinline width="1684" height="418"></video><figcaption>Click a tile. The preview switches to it.</figcaption></figure>
+    </section>
+
+    <section id="interface" class="sec">
+      <h2>Interface</h2>
+      <p>Hover a label to find it. Click a box to read about it.</p>
+      <figure class="fig" data-fig="interface"><img src="img/interface.png" alt="Widget layout" width="1072" height="635"></figure>
+      <ol class="legend">
+        <li data-box="locked"><b>Locked Mesh</b> Pin a mesh so every animation plays on it.</li>
+        <li data-box="preview"><b>Preview</b> Live view of the selected animation.</li>
+        <li data-box="icons"><b>Quick buttons</b> Reset Mesh, Reset Camera, open the widget, open the room.</li>
+        <li data-box="views"><b>View modes</b> Lit, Unlit, Wireframe, Lighting Only, Sky.</li>
+        <li data-box="play"><b>Play / Pause</b> Also bound to Space.</li>
+        <li data-box="timeline"><b>Timeline</b> Drag to scrub any frame.</li>
+        <li data-box="time"><b>Time</b> Current and total seconds.</li>
+        <li data-box="anim"><b>Animation details</b> Rotation, offset, floor, sequence, montage, attachments, root motion.</li>
+        <li data-box="compat"><b>Skeleton compatibility</b> Share animations across skeletons.</li>
+      </ol>
+      <figure class="fig plain"><video src="img/play.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Pause, click the timeline to scrub, play.</figcaption></figure>
+    </section>
+
+    <section id="controls" class="sec">
+      <h2>Controls</h2>
+      <p>Hover the preview to use these.</p>
+      <div class="table-wrap">
+      <table class="keys">
+        <tbody>
+          <tr><td><kbd>RMB</kbd> hold</td><td>Look around</td></tr>
+          <tr><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></td><td>Fly while holding RMB</td></tr>
+          <tr><td><kbd>E</kbd> / <kbd>Q</kbd></td><td>Fly up / down</td></tr>
+          <tr><td><kbd>Wheel</kbd></td><td>Move forward / back</td></tr>
+          <tr><td><kbd>Shift</kbd> + <kbd>Wheel</kbd></td><td>Move left / right</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>Wheel</kbd></td><td>Move up / down</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>Wheel</kbd></td><td>Rotate mesh 10°</td></tr>
+          <tr><td><kbd>RMB</kbd> + <kbd>Wheel</kbd></td><td>Fly speed, 0.25x to 5x</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Wheel</kbd></td><td>Details size, 50% to 200%</td></tr>
+          <tr><td><kbd>R</kbd></td><td>Reset mesh</td></tr>
+          <tr><td><kbd>F</kbd></td><td>Reset camera</td></tr>
+          <tr><td><kbd>Space</kbd></td><td>Play / Pause</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section id="features" class="sec">
+      <h2>Features</h2>
+
+      <article id="view-modes" class="feat">
+        <h3>View modes</h3>
+        <p>Switch shading from the <mark data-box="views">bottom left of the preview</mark>. Sky toggles the backdrop.</p>
+        <figure class="fig plain"><video src="img/views.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Click a mode. Sky toggles on and off.</figcaption></figure>
+        <div class="grid5">
+          <figure><img src="img/view_lit.png" alt="Lit" width="581" height="326"><figcaption>Lit</figcaption></figure>
+          <figure><img src="img/view_unlit.png" alt="Unlit" width="581" height="326"><figcaption>Unlit</figcaption></figure>
+          <figure><img src="img/view_wire.png" alt="Wireframe" width="581" height="326"><figcaption>Wireframe</figcaption></figure>
+          <figure><img src="img/view_lightonly.png" alt="Lighting Only" width="581" height="326"><figcaption>Lighting Only</figcaption></figure>
+          <figure><img src="img/view_sky.png" alt="Sky" width="581" height="326"><figcaption>Sky</figcaption></figure>
+        </div>
+      </article>
+
+      <article id="rotate" class="feat">
+        <h3>Rotate</h3>
+        <p>Set <mark data-box="rotation">Actor Rotation</mark> to face the mesh any way. Or use <kbd>Alt</kbd> + <kbd>Wheel</kbd>.</p>
+        <figure class="fig plain"><video src="img/rotate.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Actor Rotation Z from 0 to 90.</figcaption></figure>
+      </article>
+
+      <article id="offset-floor" class="feat">
+        <h3>Offset and floor</h3>
+        <p>Feet sinking into the floor? Raise Z in <mark data-box="offset">Actor Offset</mark>. It moves the mesh in room space.</p>
+        <p>Uncheck <mark data-box="floor">Show Floor?</mark> to hide the floor.</p>
+        <div class="pair">
+          <figure class="fig plain"><video src="img/offset.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Offset Z up to 40, then back.</figcaption></figure>
+          <figure class="fig plain"><video src="img/floor.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Show Floor? off, then on.</figcaption></figure>
+        </div>
+      </article>
+
+      <article id="attachments" class="feat">
+        <h3>Attachments</h3>
+        <p>Pick a <mark data-box="presets_s">Attachment Preset</mark> to equip props. Edit sockets and meshes in <mark data-box="attach">Attach Mesh</mark>.</p>
+        <figure class="fig plain"><video src="img/attach.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Rifle, Pistol, Sword &amp; Shield, None.</figcaption></figure>
+        <p class="note">Your mesh needs the matching sockets. Presets: None, Sword, Sword &amp; Shield, Rifle, Pistol.</p>
+      </article>
+
+      <article id="root-motion" class="feat">
+        <h3>Root Motion Lock</h3>
+        <p><mark data-box="rootlock">Root Motion Lock</mark> keeps moving animations in place. Turn it off to see the real travel.</p>
+        <figure class="fig plain"><video src="img/rootlock.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Off: walks forward. On: stays in place.</figcaption></figure>
+      </article>
+
+      <article id="compatibility" class="feat">
+        <h3>Skeleton compatibility</h3>
+        <p>Play UE4 animations on UE5 meshes, and the reverse.</p>
+        <ol class="legend">
+          <li data-box="bones"><b>Bones for Compatibility</b> Bones two skeletons must share.</li>
+          <li data-box="links"><b>Link This / Link All / Delete All</b> Link this skeleton, link every match, or clear all.</li>
+          <li data-box="skels"><b>Compatible Skeletons</b> Skeletons linked to the current one.</li>
+        </ol>
+        <figure class="fig" data-fig="compat"><img src="img/compat.png" alt="Compatibility panel" width="1072" height="635"></figure>
+      </article>
+
+      <article id="lock-mesh" class="feat">
+        <h3>Lock Mesh</h3>
+        <p>Check <mark data-box="lockcheck">Lock Mesh</mark> to keep the current mesh. Every <mark data-box="sequence">animation</mark> you click then plays on it.</p>
+        <figure class="fig plain"><video src="img/lockmesh.mp4" autoplay muted loop playsinline width="1684" height="418"></video><figcaption>Unlocked: UE4 mesh. Locked: same jog on Manny.</figcaption></figure>
+        <p class="note">Link the skeletons first. Lock while the mesh you want is showing.</p>
+      </article>
+
+      <article id="layout" class="feat">
+        <h3>Layout and scale</h3>
+        <p>Drag the dividers to resize panels. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Wheel</kbd> scales the details.</p>
+        <figure class="fig plain"><video src="img/layout.mp4" autoplay muted loop playsinline width="856" height="508"></video><figcaption>Details scale down to 70%, then back.</figcaption></figure>
+      </article>
+    </section>
+
+    <section id="changelog" class="sec">
+      <h2>Changelog</h2>
+      <div class="log">
+        <div class="entry"><time>10/06/2026</time>
+          <ul>
+            <li>Actor Offset moves the mesh in room space</li>
+            <li>Show Floor? hides the floor</li>
+          </ul>
+        </div>
+        <div class="entry"><time>09/28/2026</time>
+          <ul>
+            <li>Room spawns and cleans up by itself</li>
+            <li>Free-fly camera replaces camera snap</li>
+            <li>View modes, timeline, play and pause</li>
+            <li>Locked Mesh panel and quick buttons</li>
+            <li>Resizable panels and details scale</li>
+            <li>Works with Realtime off</li>
+            <li>Additive animations skipped</li>
+          </ul></div>
+        <div class="entry"><time>10/25/2024</time><ul><li>Link All makes every matching skeleton compatible</li></ul></div>
+        <div class="entry"><time>10/14/2024</time><ul><li>Asset created</li></ul></div>
+      </div>
+      <h3>Roadmap</h3>
+      <p>Nothing planned yet. Ideas welcome on GitHub.</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>
