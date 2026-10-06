@@ -56,6 +56,7 @@ p { color: #c9ced5; margin-bottom: 14px; max-width: 46em; }
 .fig img, .fig video { border-radius: 9px; }
 .fig:has(figcaption) img, .fig:has(figcaption) video { border-radius: 9px 9px 0 0; }
 .stage { position: relative; }
+.stage img { width: 100%; }
 .fig figcaption { padding: 7px 12px; font-size: .84rem; color: var(--muted); background: var(--panel); border-radius: 0 0 9px 9px; }
 .grid5 figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 12px; font-size: .82rem; color: #fff;
   background: linear-gradient(transparent, rgba(0, 0, 0, .85)); pointer-events: none; }
